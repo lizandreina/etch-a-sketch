@@ -1,0 +1,12 @@
+.container {
+    width: 650px;
+    height: 650px;
+    border: 1px black solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    border: 1px black solid;
+    flex-grow: 1;
+}
