@@ -1,16 +1,18 @@
-const containerColumn = document.querySelector('.container');
+const container = document.querySelector('.container');
 
-function addDivs(rows, columns){
-    for (let i = 0; i < rows ; i++){
+function addSquares(number){
+    for (let i = 0; i < number ; i++){
     const row = document.createElement('div');
     row.classList.add('row');
-        for (let j = 0; j < columns ; j++){
+        for (let j = 0; j < number ; j++){
             const col = document.createElement('div');
             col.classList.add('col');
             row.appendChild(col);
+
+            col.addEventListener('mouseenter', () => col.style.backgroundColor = 'yellow');
         }
-    containerColumn.appendChild(row);
+    container.appendChild(row);
     }
 }
 
-addDivs(16, 16);
+addSquares(16);
