@@ -16,3 +16,12 @@ function addSquares(number){
 }
 
 addSquares(16);
+
+const button = document.querySelector('button');
+
+function getSquares(){
+    let number = prompt('How many squares do you want per side?', 'Max. 100');
+    container.remove();
+} 
+
+button.addEventListener('click', getSquares);
