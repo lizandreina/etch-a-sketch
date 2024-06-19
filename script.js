@@ -1,5 +1,11 @@
 let container = document.querySelector('.container');
 
+function getRandomColor(){
+    let randomNumber = () => Math.floor(Math.random() * 255);
+    let rgbColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    return rgbColor;
+}
+
 function addSquares(number){
     for (let i = 0; i < number ; i++){
     const row = document.createElement('div');
@@ -9,7 +15,7 @@ function addSquares(number){
             col.classList.add('col');
             row.appendChild(col);
 
-            col.addEventListener('mouseenter', () => col.style.backgroundColor = 'black');
+            col.addEventListener('mouseenter', () => col.style.backgroundColor = getRandomColor());
         }
     container.appendChild(row);
     }
