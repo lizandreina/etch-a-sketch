@@ -9,24 +9,72 @@ function addSquares(number){
             col.classList.add('col');
             row.appendChild(col);
 
-            col.addEventListener('mouseenter', () => col.style.backgroundColor = 'yellow');
+            col.addEventListener('mouseenter', () => col.style.backgroundColor = 'black');
         }
     container.appendChild(row);
     }
 }
 
-addSquares(16);
+const firstGrid = addSquares(16);
+firstGrid;
 
 const button = document.querySelector('button');
 
 function getSquares(){
-    let choice = parseInt(prompt('How many squares do you want per side?', 'Max. 100'));
-    container.remove();
+    let choice = prompt('How many squares would you like on each side?', 'Max. 100');
 
-    container = document.createElement('div');
-    container.classList.add('container');
-    document.body.appendChild(container);
-    addSquares(choice);
-} 
+    if (choice === null || choice === ''){
+    } else {
+        choice = parseInt(choice);
+        if (isNaN(choice) || choice > 100){
+            choice = prompt('Please choose a number below 101');
+            if (choice < 101 && choice > 1) {
+                container.remove();
+    
+                container = document.createElement('div');
+                container.classList.add('container');
+                document.body.appendChild(container);
+                addSquares(choice);
+            } else if (choice < 2 && choice !== null) {
+                choice = prompt('Please choose a number higher than 1');
+                if (choice < 100 && choice > 1) {
+                    container.remove();
+        
+                    container = document.createElement('div');
+                    container.classList.add('container');
+                    document.body.appendChild(container);
+                    addSquares(choice);
+                }
+            }
+        } else if (choice < 2) {
+            choice = prompt('Please choose a number higher than 1');
+            if (choice > 100) {
+                choice = prompt('Please choose a number below 101');
+                if (choice < 101 && choice > 1) {
+                    container.remove();
+        
+                    container = document.createElement('div');
+                    container.classList.add('container');
+                    document.body.appendChild(container);
+                    addSquares(choice);
+                }
+            } else if (choice < 101 && choice > 1) {
+                container.remove();
+    
+                container = document.createElement('div');
+                container.classList.add('container');
+                document.body.appendChild(container);
+                addSquares(choice);
+            }
+        } else {
+            container.remove();
+
+            container = document.createElement('div');
+            container.classList.add('container');
+            document.body.appendChild(container);
+            addSquares(choice);
+        }
+    }
+}
 
 button.addEventListener('click', getSquares);

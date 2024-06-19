@@ -13,8 +13,8 @@ body {
 
 .container {
     margin: 0 auto;
-    width: 800px;
-    height: 520px;
+    width: 900px;
+    height: 570px;
     border: 1px black solid;
     display: flex;
 }
@@ -37,6 +37,6 @@ button {
     display: block;
     margin: 30px auto;
     background-color: rgb(234, 234, 234);
-    width: 800px;
+    width: 900px;
     height: 50px;
 }
