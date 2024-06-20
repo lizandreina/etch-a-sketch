@@ -1,7 +1,7 @@
 let container = document.querySelector('.container');
 
 function getRandomColor(){
-    let randomNumber = () => Math.floor(Math.random() * 255); 
+    let randomNumber = () => Math.floor(Math.random() * 255);
     let rgbColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
     return rgbColor;
 }
@@ -18,15 +18,44 @@ function addSquares(number){
             let timesHovered = 0;
 
             col.addEventListener('mouseenter', () => {
+                let color = getRandomColor();
                 if (timesHovered === 0){
-                    col.style.backgroundColor = getRandomColor();
+                    col.style.backgroundColor = color;
+                    col.style.opacity = 0;
                     timesHovered += 1;
                 } else if (timesHovered === 1) {
-                    timesHovered = 1;
+                    col.style.opacity = 0.1;
+                    timesHovered += 1;
+                } else if (timesHovered === 2) {
+                    col.style.opacity = 0.2;
+                    timesHovered += 1;
+                } else if (timesHovered === 3) {
+                    col.style.opacity = 0.3;
+                    timesHovered += 1;
+                } else if (timesHovered === 4) {
+                    col.style.opacity = 0.4;
+                    timesHovered += 1;
+                } else if (timesHovered === 5) {
+                    col.style.opacity = 0.5;
+                    timesHovered += 1;
+                } else if (timesHovered === 6) {
+                    col.style.opacity = 0.6;
+                    timesHovered += 1;
+                } else if (timesHovered === 7) {
+                    col.style.opacity = 0.7;
+                    timesHovered += 1;
+                } else if (timesHovered === 8) {
+                    col.style.opacity = 0.8;
+                    timesHovered += 1;
+                } else if (timesHovered === 9) {
+                    col.style.opacity = 0.9;
+                    timesHovered += 1;
+                } else {
+                    col.style.opacity = 1;
                 }
             });
+        container.appendChild(row);
         }
-    container.appendChild(row);
     }
 }
 
