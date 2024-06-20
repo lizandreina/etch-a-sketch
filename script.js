@@ -1,11 +1,5 @@
 let container = document.querySelector('.container');
 
-function getRandomColor(){
-    let randomNumber = () => Math.floor(Math.random() * 255);
-    let rgbColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
-    return rgbColor;
-}
-
 function addSquares(number){
     for (let i = 0; i < number ; i++){
     const row = document.createElement('div');
@@ -16,42 +10,56 @@ function addSquares(number){
             row.appendChild(col);
 
             let timesHovered = 0;
+            let randomNumber = () => Math.floor(Math.random() * 255);
+            let red = randomNumber();
+            let green = randomNumber();
+            let blue = randomNumber();
+            let color = `${red}, ${green}, ${blue}`;
+            let opacity = 0;
 
             col.addEventListener('mouseenter', () => {
-                let color = getRandomColor();
                 if (timesHovered === 0){
-                    col.style.backgroundColor = color;
-                    col.style.opacity = 0;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 1) {
-                    col.style.opacity = 0.1;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 2) {
-                    col.style.opacity = 0.2;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 3) {
-                    col.style.opacity = 0.3;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 4) {
-                    col.style.opacity = 0.4;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 5) {
-                    col.style.opacity = 0.5;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 6) {
-                    col.style.opacity = 0.6;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 7) {
-                    col.style.opacity = 0.7;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 8) {
-                    col.style.opacity = 0.8;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else if (timesHovered === 9) {
-                    col.style.opacity = 0.9;
+                    opacity += 0.1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                     timesHovered += 1;
                 } else {
-                    col.style.opacity = 1;
+                    opacity = 1;
+                    col.style.backgroundColor = `rgba(${color}, ${opacity})`;
                 }
             });
         container.appendChild(row);
