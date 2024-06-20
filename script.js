@@ -1,7 +1,7 @@
 let container = document.querySelector('.container');
 
 function getRandomColor(){
-    let randomNumber = () => Math.floor(Math.random() * 255);
+    let randomNumber = () => Math.floor(Math.random() * 255); 
     let rgbColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
     return rgbColor;
 }
@@ -15,7 +15,16 @@ function addSquares(number){
             col.classList.add('col');
             row.appendChild(col);
 
-            col.addEventListener('mouseenter', () => col.style.backgroundColor = getRandomColor());
+            let timesHovered = 0;
+
+            col.addEventListener('mouseenter', () => {
+                if (timesHovered === 0){
+                    col.style.backgroundColor = getRandomColor();
+                    timesHovered += 1;
+                } else if (timesHovered === 1) {
+                    timesHovered = 1;
+                }
+            });
         }
     container.appendChild(row);
     }
